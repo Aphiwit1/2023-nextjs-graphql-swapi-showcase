@@ -1,91 +1,10 @@
-import React, { useState, useEffect } from "react";
-// import { AllFilmsResponse, Film, StarWarsListProps } from "../interface";
+import React, { useState } from "react";
 import { GraphQLClient } from "graphql-request";
 import { AllFilmsResponse, Film, StarWarsListProps } from "./interface";
 
 const WithStarwarsList = (Component: React.FC<StarWarsListProps>) => {
-  const Hoc = () => {
-    const [data, setData] = useState<Film[] | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+  const Hoc = ({ data, loading, error }: StarWarsListProps) => {
     const [favorites, setFavorites] = useState<string[]>([]);
-
-    useEffect(() => {
-      const fetchStarWarsData = async () => {
-        try {
-          // const localData = localStorage.getItem("star-wars-films-data");
-          const localData = false;
-          if (localData) {
-            const response = JSON.parse(localData);
-            const filmsWithFavProp = response.allFilms.films.map(
-              (film: Film) => ({
-                ...film,
-                isFav: favorites.includes(film.id),
-              })
-            );
-
-            setData(filmsWithFavProp);
-            setLoading(false);
-          } else {
-            const endpoint =
-              "https://swapi-graphql.netlify.app/.netlify/functions/index";
-            const query = `
-              {
-                allFilms {
-                  films {
-                    id
-                    title
-                    director
-                    releaseDate
-                  }
-                }
-              }
-            `;
-
-            const client = new GraphQLClient(endpoint);
-            const response: AllFilmsResponse = await client.request(query);
-
-            // localStorage.setItem(
-            //   "star-wars-films-data",
-            //   JSON.stringify(response)
-            // );
-
-            const filmsWithFavProp = response.allFilms.films.map(
-              (film: Film) => ({
-                ...film,
-                isFav: favorites.includes(film.id),
-              })
-            );
-            setData(filmsWithFavProp);
-            setLoading(false);
-          }
-        } catch (error) {
-          setError("Error fetching data.");
-          setLoading(false);
-        }
-      };
-
-      fetchStarWarsData();
-    }, []);
-
-    useEffect(() => {
-      setData((prevData) => {
-        return (
-          prevData?.map((film: Film) => ({
-            ...film,
-            isFav: favorites.includes(film.id),
-          })) ?? []
-        );
-      });
-    }, [favorites]);
-
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-
-    if (error) {
-      return <div>{error}</div>;
-    }
 
     const handleToggleFavorite = (film: Film) => {
       setFavorites((prevFavorites) =>
@@ -110,3 +29,45 @@ const WithStarwarsList = (Component: React.FC<StarWarsListProps>) => {
 };
 
 export { WithStarwarsList };
+
+export async function getStaticProps() {
+  const endpoint = "https://swapi-graphql.netlify.app/.netlify/functions/index";
+  const query = `
+    {
+      allFilms {
+        films {
+          id
+          title
+          director
+          releaseDate
+        }
+      }
+    }
+  `;
+
+  const client = new GraphQLClient(endpoint);
+  try {
+    const response: AllFilmsResponse = await client.request(query);
+
+    const filmsWithFavProp = response.allFilms.films.map((film: Film) => ({
+      ...film,
+      isFav: false, // As this is SSG, we can't know the user's favorites at build time, so initialize isFav to false.
+    }));
+
+    return {
+      props: {
+        data: filmsWithFavProp,
+        loading: false,
+        error: null,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        data: [],
+        loading: false,
+        error: "Error fetching data.",
+      },
+    };
+  }
+}

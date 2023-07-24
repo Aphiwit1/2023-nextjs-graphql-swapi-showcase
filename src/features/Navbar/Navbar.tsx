@@ -8,6 +8,9 @@ const Navbar = () => (
           backgroundImage: `url("https://images.unsplash.com/photo-1618336753974-aae8e04506aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80")`,
         }}
       >
+        <div className="flex flex-row justify-center bg-blue-950 p-2 text-center">
+            This project created by NextJS 
+        </div>
         {/* STAR WARS Logo */}
         <div className="flex items-center h-20 border-b-[1px] border-yellow-500">
           <div className="mx-auto relative px-5 max-w-screen-xl w-full flex items-center  justify-center">
