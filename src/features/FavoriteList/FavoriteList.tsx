@@ -5,6 +5,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { Film } from "../StarwarList/interface";
 
 
+
 const FavoriteList = ({
   favorites,
   data,
@@ -19,7 +20,7 @@ const FavoriteList = ({
         </h2>
 
         <ul className="flex flex-wrap justify-center">
-          {favorites.map((id: any) => {
+          {favorites.map((id: string) => {
             const favFilm = data?.find((film: Film) => film.id === id);
             return (
               <>

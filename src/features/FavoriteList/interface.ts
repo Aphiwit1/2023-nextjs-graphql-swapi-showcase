@@ -6,4 +6,3 @@ export interface FavoriteFilmsProps {
     handleToggleFavorite: (film: Film) => void;
 }
 
-
