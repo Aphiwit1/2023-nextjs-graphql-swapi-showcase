@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Film, StarWarsListProps } from "./interface";
+import { Film, StarWarsListProps, filmsProp } from "./interface";
 
 const WithStarwarsListV2 = (Component: React.FC<StarWarsListProps>) => {
-  const Hoc: React.FC<StarWarsListProps> = (props: any) => {
+  const Hoc: React.FC<StarWarsListProps> = (props: StarWarsListProps) => {
     const { films } = props;
     const [data, setData] = useState<Film[] | null>(null);
     const [loading, setLoading] = useState(true);
