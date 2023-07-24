@@ -4,7 +4,6 @@ import StarWarsListV2 from '@/features/StarWarsListV2/StarWarsListV2';
 import { GraphQLClient, gql } from 'graphql-request';
 
 
-
 const getPostsQuery = gql`
   query {
     allFilms {
@@ -19,13 +18,11 @@ const getPostsQuery = gql`
 `;
 
 export default function Home({ films }:any) {
-  // console.log(">>>>>", posts);
-  console.log('films>>>', films)
   return (
     <>
       <Navbar/>
       {/* <StarWarsList/> */}
-      <StarWarsListV2 data={films}/>
+      <StarWarsListV2 films={films}/>
     </>
   )
 }
