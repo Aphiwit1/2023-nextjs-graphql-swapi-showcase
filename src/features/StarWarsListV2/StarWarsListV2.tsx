@@ -81,10 +81,10 @@ const StarWarsListV2: React.FC<any> = (props) => {
             <span className="bg-yellow-400 p-2 ">All Star Wars Films</span>
           </h1>
 
-          {data && (
+          {films && (
             <>
               <section className="flex flex-wrap justify-center">
-                {data.map((film: Film) => (
+                {films.map((film: Film) => (
                   <div
                     key={"film" + film.id}
                     className="relative bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl m-5 min-w-[300px] cursor-pointer lightSaberBlueClass "
