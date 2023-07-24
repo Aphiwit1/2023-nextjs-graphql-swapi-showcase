@@ -11,46 +11,46 @@ const StarWarsListV2: React.FC<any> = (props) => {
   const [error, setError] = useState<string | null>(null);
 
   console.log('films >>>>', films)
-  useEffect(() => {
-    const fetchStarWarsData = async () => {
-      try {
-        if (films) {
-          const filmsWithFavProp = films.map((film: Film) => ({
-            ...film,
-            isFav: favorites.includes(film.id),
-          }));
+  // useEffect(() => {
+  //   const fetchStarWarsData = async () => {
+  //     try {
+  //       if (films) {
+  //         const filmsWithFavProp = films.map((film: Film) => ({
+  //           ...film,
+  //           isFav: favorites.includes(film.id),
+  //         }));
 
-          setData(filmsWithFavProp);
-          setLoading(false);
-        }
-      } catch (error) {
-        setError("Error fetching data.");
-        setLoading(false);
-      }
-    };
+  //         setData(filmsWithFavProp);
+  //         setLoading(false);
+  //       }
+  //     } catch (error) {
+  //       setError("Error fetching data.");
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchStarWarsData();
-  }, []);
+  //   fetchStarWarsData();
+  // }, []);
 
-  useEffect(() => {
-    setData((prevData) => {
-      return (
-        prevData?.map((film: Film) => ({
-          ...film,
-          isFav: favorites.includes(film.id),
-        })) ?? []
-      );
-    });
-  }, [favorites]);
+  // useEffect(() => {
+  //   setData((prevData) => {
+  //     return (
+  //       prevData?.map((film: Film) => ({
+  //         ...film,
+  //         isFav: favorites.includes(film.id),
+  //       })) ?? []
+  //     );
+  //   });
+  // }, [favorites]);
 
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (error) {
-    return <div>{error}</div>;
-  }
+  // if (error) {
+  //   return <div>{error}</div>;
+  // }
 
   const handleToggleFavorite = (film: Film) => {
     setFavorites((prevFavorites) =>
