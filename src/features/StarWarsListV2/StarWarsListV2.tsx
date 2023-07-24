@@ -10,6 +10,7 @@ const StarWarsListV2: React.FC<any> = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  console.log('films >>>>', films)
   useEffect(() => {
     const fetchStarWarsData = async () => {
       try {

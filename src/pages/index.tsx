@@ -3,7 +3,6 @@ import Navbar from '@/features/Navbar/Navbar';
 import StarWarsListV2 from '@/features/StarWarsListV2/StarWarsListV2';
 import { GraphQLClient, gql } from 'graphql-request';
 
-
 const getPostsQuery = gql`
   query {
     allFilms {
