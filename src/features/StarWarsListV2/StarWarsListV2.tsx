@@ -4,7 +4,7 @@ import { Film, StarWarsListProps } from "./interface";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import FavoriteList from "../FavoriteList/FavoriteList";
 import { WithStarwarsListV2 } from "./WithStarWarsListV2";
-const StarWarsListV2: React.FC<any> = ({data,
+const StarWarsListV2: React.FC<StarWarsListProps> = ({data,
   favorites,
   handleToggleFavorite}: StarWarsListProps) => (
     <div>

@@ -1,20 +1,8 @@
 
 import Navbar from '@/features/Navbar/Navbar';
 import StarWarsListV2 from '@/features/StarWarsListV2/StarWarsListV2';
-import { GraphQLClient, gql } from 'graphql-request';
-
-const getPostsQuery = gql`
-  query {
-    allFilms {
-      films {
-        id
-        title
-        director
-        releaseDate
-      }
-    }
-  }
-`;
+import { GraphQLClient } from 'graphql-request';
+import { getPostsQuery } from './api/graphqlQueries';
 
 export default function Home({ films }:any) {
   return (
