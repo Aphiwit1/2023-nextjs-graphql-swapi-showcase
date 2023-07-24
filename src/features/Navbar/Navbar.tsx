@@ -9,7 +9,7 @@ const Navbar = () => (
         }}
       >
         <div className="flex flex-row justify-center bg-blue-950 p-2 text-center">
-            This project created by NextJS (Updated: 15.34)
+            This project created by NextJS (Updated: 15.47)
 
           
         </div>
