@@ -7,7 +7,8 @@ export interface Film {
 }
 
 export interface StarWarsListProps {
-  data: Film[] | null;
+  data?: Film[] | null;
+  films?: Film[] | null;
   loading?: boolean;
   error?: string | null;
   favorites?: string[] | undefined;

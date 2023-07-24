@@ -3,10 +3,11 @@ import Navbar from '@/features/Navbar/Navbar';
 import StarWarsListV2 from '@/features/StarWarsListV2/StarWarsListV2';
 import { GraphQLClient } from 'graphql-request';
 import { getPostsQuery } from './api/graphqlQueries';
-import { StarWarsListProps } from '@/features/StarWarsListV2/interface';
+import { filmsProp } from '@/features/StarWarsListV2/interface';
+
 
 // Type แปลกๆ อย่าลืมมาดูด้วยนะ 
-export default function Home({ films }:StarWarsListProps) {
+export default function Home({ films }:filmsProp) {
   return (
     <>
       <Navbar/>
