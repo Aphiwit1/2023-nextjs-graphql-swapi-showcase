@@ -7,11 +7,10 @@ export interface Film {
 }
 
 export interface StarWarsListProps {
-  data?: Film[] | null;
-  films?: Film[]; 
+  data: Film[] | null;
   loading?: boolean;
   error?: string | null;
-  favorites?: string[];
+  favorites?: string[] | undefined;
   handleToggleFavorite?: (film: Film) => void;
 }
 
@@ -19,5 +18,9 @@ export interface AllFilmsResponse {
   allFilms: {
     films: Film[];
   };
+}
+
+export interface filmsProp {
+  films: Film[] | null;
 }
 

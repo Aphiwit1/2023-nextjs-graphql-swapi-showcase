@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { Film, StarWarsListProps } from "./interface";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import FavoriteList from "../FavoriteList/FavoriteList";
 import { WithStarwarsListV2 } from "./WithStarWarsListV2";
-const StarWarsListV2: React.FC<StarWarsListProps> = ({data,
+const StarWarsListV2: React.FC<any> = ({data,
   favorites,
-  handleToggleFavorite}: StarWarsListProps) => (
+  handleToggleFavorite}: any) => (
     <div>
       {/* Your component UI here */}
       <section className="flex flex-col items-center p-4 bg-slate-900">
