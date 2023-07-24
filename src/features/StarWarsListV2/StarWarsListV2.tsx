@@ -1,68 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { Film } from "./interface";
+import { Film, StarWarsListProps } from "./interface";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import FavoriteList from "../FavoriteList/FavoriteList";
-const StarWarsListV2: React.FC<any> = (props) => {
-  const { films } = props;
-  const [data, setData] = useState<Film[] | null>(null);
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  console.log('films >>>>', films)
-  // useEffect(() => {
-  //   const fetchStarWarsData = async () => {
-  //     try {
-  //       if (films) {
-  //         const filmsWithFavProp = films.map((film: Film) => ({
-  //           ...film,
-  //           isFav: favorites.includes(film.id),
-  //         }));
-
-  //         setData(filmsWithFavProp);
-  //         setLoading(false);
-  //       }
-  //     } catch (error) {
-  //       setError("Error fetching data.");
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchStarWarsData();
-  // }, []);
-
-  // useEffect(() => {
-  //   setData((prevData) => {
-  //     return (
-  //       prevData?.map((film: Film) => ({
-  //         ...film,
-  //         isFav: favorites.includes(film.id),
-  //       })) ?? []
-  //     );
-  //   });
-  // }, [favorites]);
-
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>{error}</div>;
-  // }
-
-  const handleToggleFavorite = (film: Film) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.includes(film.id)
-        ? prevFavorites.filter((favId) => favId !== film.id)
-        : [...prevFavorites, film.id]
-    );
-  };
-
-
-
-  return (
+import { WithStarwarsListV2 } from "./WithStarWarsListV2";
+const StarWarsListV2: React.FC<any> = ({data,
+  favorites,
+  handleToggleFavorite}: StarWarsListProps) => (
     <div>
       {/* Your component UI here */}
       <section className="flex flex-col items-center p-4 bg-slate-900">
@@ -81,10 +25,10 @@ const StarWarsListV2: React.FC<any> = (props) => {
             <span className="bg-yellow-400 p-2 ">All Star Wars Films</span>
           </h1>
 
-          {films && (
+          {data && (
             <>
               <section className="flex flex-wrap justify-center">
-                {films.map((film: Film) => (
+                {data.map((film: Film) => (
                   <div
                     key={"film" + film.id}
                     className="relative bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl m-5 min-w-[300px] cursor-pointer lightSaberBlueClass "
@@ -118,6 +62,7 @@ const StarWarsListV2: React.FC<any> = (props) => {
       </section>
     </div>
   );
-};
 
-export default StarWarsListV2;
+
+const WrappedComponent = WithStarwarsListV2(StarWarsListV2);
+export default WrappedComponent;
