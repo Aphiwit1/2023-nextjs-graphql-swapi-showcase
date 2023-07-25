@@ -11,7 +11,7 @@ const Navbar = () => (
       }}
     >
       <div className="flex flex-row justify-center bg-blue-950 p-2 text-center">
-        This project created by NextJS (Updated: 16.27)
+        This project created by NextJS (Updated: 17.41)
       </div>
       {/* STAR WARS Logo */}
       <div className="flex items-center justify-between h-20 border-b-[1px] border-yellow-500 px-10">
