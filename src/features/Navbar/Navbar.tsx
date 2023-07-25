@@ -1,4 +1,5 @@
 import { WithNavbar } from "./WithNavbar";
+import Image from 'next/image';
 
 const Navbar = () => (
     <>
