@@ -11,7 +11,7 @@ const Navbar = () => (
       }}
     >
       <div className="flex flex-row justify-center bg-blue-950 p-2 text-center">
-        This project created by NextJS (Updated: 16.06)
+        This project created by NextJS (Updated: 16.27)
       </div>
       {/* STAR WARS Logo */}
       <div className="flex items-center justify-between h-20 border-b-[1px] border-yellow-500 px-10">
@@ -25,9 +25,9 @@ const Navbar = () => (
 
         <div>
         <Link href="/" className="font-medium text-white hover:text-yellow-500">Home</Link>
-        <Link href="starwar-films" className="ml-5 font-medium text-white hover:text-yellow-500">Films</Link>
+        <Link href="/starwar-films" className="ml-5 font-medium text-white hover:text-yellow-500">Films</Link>
 
-        <Link href="starwar-films" className="ml-5 font-medium text-white hover:text-yellow-500">People</Link>
+        <Link href="/starwar-people" className="ml-5 font-medium text-white hover:text-yellow-500">People</Link>
         </div>
 
         <div>Dark Mode</div>

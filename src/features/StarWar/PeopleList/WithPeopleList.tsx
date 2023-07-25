@@ -1,6 +1,6 @@
-import { AllPeopleResponse, PeopleListProps, People } from "./interface";
+import { PeopleListProps, People } from "./interface";
 import React, { useState, useEffect } from "react";
-import { GraphQLClient } from "graphql-request";
+
 
 const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
   const Hoc = (props: any) => {
