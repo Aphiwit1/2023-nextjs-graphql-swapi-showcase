@@ -2,11 +2,11 @@
 import Navbar from '@/features/Navbar/Navbar';
 import { GraphQLClient } from 'graphql-request';
 import { allPeopleQuery, getPostsQuery } from './api/graphqlQueries';
+import { People } from '@/features/StarWar/PeopleList/interface';
+import { Film } from '@/features/StarWar/StarWarsList/interface';
+import StarWarsList from '@/features/StarWar/StarWarsList/StarWarsList';
 import PeopleList from '@/features/StarWar/PeopleList/PeopleList';
 
-import { People } from '@/features/StarWar/PeopleList/interface';
-import StarWarsList from '@/features/StarWar/StarWarsList/StarWarsList';
-import { Film } from '@/features/StarWar/StarWarsList/interface';
 
 interface HomeProps {
   films: Film[];

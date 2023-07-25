@@ -4,6 +4,7 @@ import { Film, StarWarsListProps } from "./interface";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import FavoriteList from "../FavoriteList/FavoriteList";
 import { WithStarWarsList } from "./WithStarWarsList";
+import { FilmClass } from "@/models/Film";
 
 const StarWarsList: React.FC<StarWarsListProps> = ({data,
   favorites,
@@ -29,7 +30,7 @@ const StarWarsList: React.FC<StarWarsListProps> = ({data,
           {data && (
             <>
               <section className="flex flex-wrap justify-center">
-                {data.map((film: Film) => (
+                {data.map((film: FilmClass) => (
                   <div
                     key={"film" + film.id}
                     className="relative bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl m-5 min-w-[300px] cursor-pointer lightSaberBlueClass "
@@ -46,13 +47,13 @@ const StarWarsList: React.FC<StarWarsListProps> = ({data,
                     </div>
 
                     <h3 className="text-white mt-5 text-base font-medium tracking-tight">
-                      {film.title}
+                    {film.title}
                     </h3>
                     <div className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-                      {film.releaseDate}
+                    Release Date:  {film.releaseDate}
                     </div>
                     <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-                      {film.director}
+                    Director: {film.director}
                     </p>
                   </div>
                 ))}

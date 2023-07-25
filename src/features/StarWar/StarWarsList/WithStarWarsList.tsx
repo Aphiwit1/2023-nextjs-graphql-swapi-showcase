@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Film, StarWarsListProps, filmsProp } from "./interface";
+import { FilmClass } from "@/models/Film";
+import { plainToClass } from "class-transformer";
 
 const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
   const Hoc: React.FC<StarWarsListProps> = (props: StarWarsListProps) => {
@@ -13,12 +15,18 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
         const fetchStarWarsData = async () => {
           try {
             if (films) {
-              const filmsWithFavProp = films.map((film: Film) => ({
+            const mockFilm = plainToClass(FilmClass, films);
+              const filmsWithFavProp = mockFilm.map((film: FilmClass, index) => ({
                 ...film,
+                title: film.getTitleNameWithYear(),
+                releaseDate: film.getDateFormat(),
                 isFav: favorites.includes(film.id),
               }));
+
+              // console.log('mockFilm>>>', mockFilm[0].getTitleNameWithYear())
     
               setData(filmsWithFavProp);
+              console.log('>>>>>>', data)
               setLoading(false);
             }
           } catch (error) {
