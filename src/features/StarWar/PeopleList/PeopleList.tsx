@@ -3,7 +3,6 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { WithPeopleList } from "./WithPeopleList";
 import PeopleFavoriteList from "../PeopleFavoriteList/PeopleFavoriteList";
 
-
 const PeopleList = ({
   data,
   favorites,

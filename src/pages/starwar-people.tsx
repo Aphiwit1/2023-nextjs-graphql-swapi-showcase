@@ -4,8 +4,11 @@ import { allPeopleQuery, getPostsQuery } from "./api/graphqlQueries";
 import Navbar from "@/features/Navbar/Navbar";
 import { People } from "@/features/StarWar/PeopleList/interface";
 import PeopleList from "@/features/StarWar/PeopleList/PeopleList";
+interface StarWarPeopleProps {
+  people: People[];
+}
 
-const starwarPeople = ({ people }: any) => {
+const starwarPeople = ({ people }: StarWarPeopleProps) => {
   return (
     <>
       <Navbar />

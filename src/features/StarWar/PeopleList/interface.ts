@@ -11,8 +11,4 @@ export interface People {
     handleToggleFavorite: (film: People) => void;
 }
 
-export interface AllPeopleResponse {
-  allPeople: {
-    people: People[];
-  };
-}
+

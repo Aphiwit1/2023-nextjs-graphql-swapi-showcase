@@ -5,7 +5,11 @@ import { getPostsQuery } from './api/graphqlQueries'
 import { Film } from '@/features/StarWar/StarWarsList/interface'
 import Navbar from '@/features/Navbar/Navbar'
 
-const starwarFilm = ({films}: any) => {
+interface StarWarFilmProps {
+  films: Film[];
+}
+
+const starwarFilm = ({films}: StarWarFilmProps) => {
   return (
     <>
         <Navbar />
