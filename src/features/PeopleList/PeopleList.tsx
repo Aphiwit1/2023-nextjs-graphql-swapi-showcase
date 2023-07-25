@@ -1,7 +1,8 @@
 import { PeopleListProps, People } from "./interface";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { WithPeopleList } from "./WithPeopleList";
-// import PeopleFavoriteList from "../PeopleFavoriteList/PeopleFavoriteList";
+import PeopleFavoriteList from "../PeopleFavoriteList/PeopleFavoriteList";
+
 
 const PeopleList = ({
   data,
@@ -10,11 +11,11 @@ const PeopleList = ({
 }: PeopleListProps) => (
   <section className="flex flex-col items-center p-4 bg-slate-900">
     {/* Fav List */}
-    {/* <PeopleFavoriteList
+    <PeopleFavoriteList
       favorites={favorites}
       data={data}
       handleToggleFavorite={handleToggleFavorite}
-    /> */}
+    />
 
     {/*  ALl List  */}
     <div className="bg-slate-900 m-4">
