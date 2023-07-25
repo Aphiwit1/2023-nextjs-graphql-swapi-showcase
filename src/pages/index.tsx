@@ -4,6 +4,7 @@ import StarWarsListV2 from '@/features/StarWarsListV2/StarWarsListV2';
 import { GraphQLClient } from 'graphql-request';
 import { getPostsQuery } from './api/graphqlQueries';
 import { filmsProp } from '@/features/StarWarsListV2/interface';
+import PeopleList from '@/features/PeopleList/PeopleList';
 
 
 // Type แปลกๆ อย่าลืมมาดูด้วยนะ 
@@ -13,6 +14,7 @@ export default function Home({ films }:filmsProp) {
       <Navbar/>
       {/* <StarWarsList/> */}
       <StarWarsListV2 films={films}/>
+      <PeopleList/>
     </>
   )
 }

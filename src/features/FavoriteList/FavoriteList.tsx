@@ -2,7 +2,8 @@ import { FavoriteFilmsProps } from "./interface";
 import { AiFillStar } from "react-icons/ai";
 import { WithFavoriteList } from "./WithFavoriteList";
 import { BsFillBookmarkFill } from "react-icons/bs";
-import { Film } from "../StarwarList/interface";
+import { Film } from "../StarWarsListV2/interface";
+// import { Film } from "../StarwarList/interface";
 
 
 

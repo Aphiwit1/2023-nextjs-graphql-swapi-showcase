@@ -1,4 +1,6 @@
-import { Film } from "../StarwarList/interface";
+// import { Film } from "../StarwarList/interface";
+
+import { Film } from "../StarWarsListV2/interface";
 
 export interface FavoriteFilmsProps {
     favorites: string[];
