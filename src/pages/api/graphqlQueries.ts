@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const getPostsQuery = gql`
   query {
@@ -8,6 +8,17 @@ export const getPostsQuery = gql`
         title
         director
         releaseDate
+      }
+    }
+  }
+`;
+export const allPeopleQuery = gql`
+  query {
+    allPeople {
+      people {
+        id
+        gender
+        name
       }
     }
   }
