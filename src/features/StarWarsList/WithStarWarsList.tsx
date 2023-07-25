@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Film, StarWarsListProps, filmsProp } from "./interface";
 
-const WithStarwarsListV2 = (Component: React.FC<StarWarsListProps>) => {
+const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
   const Hoc: React.FC<StarWarsListProps> = (props: StarWarsListProps) => {
     const { films } = props;
     const [data, setData] = useState<Film[] | null>(null);
@@ -71,4 +71,4 @@ const WithStarwarsListV2 = (Component: React.FC<StarWarsListProps>) => {
   return Hoc;
 };
 
-export { WithStarwarsListV2 };
+export { WithStarWarsList };

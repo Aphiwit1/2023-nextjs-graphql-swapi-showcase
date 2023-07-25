@@ -3,8 +3,9 @@ import React from "react";
 import { Film, StarWarsListProps } from "./interface";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import FavoriteList from "../FavoriteList/FavoriteList";
-import { WithStarwarsListV2 } from "./WithStarWarsListV2";
-const StarWarsListV2: React.FC<any> = ({data,
+import { WithStarWarsList } from "./WithStarWarsList";
+
+const StarWarsList: React.FC<StarWarsListProps> = ({data,
   favorites,
   handleToggleFavorite}: any) => (
     <div>
@@ -64,5 +65,5 @@ const StarWarsListV2: React.FC<any> = ({data,
   );
 
 
-const WrappedComponent = WithStarwarsListV2(StarWarsListV2);
+const WrappedComponent = WithStarWarsList(StarWarsList);
 export default WrappedComponent;

@@ -18,7 +18,7 @@ const PeopleFavoriteList = ({
           </h2>
 
           <ul className="flex flex-wrap justify-center">
-            {favorites.map((favId: any) => {
+            {favorites.map((favId: string) => {
               const favPeople = data?.find(
                 (people: People) => people.id === favId
               );

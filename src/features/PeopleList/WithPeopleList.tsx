@@ -10,8 +10,6 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
     const [error, setError] = useState<string | null>(null);
     const [favorites, setFavorites] = useState<string[]>([]);
 
-    console.log('people >>>', people)
-
     useEffect(() => {
       const fetchStarWarsData = async () => {
         try {
