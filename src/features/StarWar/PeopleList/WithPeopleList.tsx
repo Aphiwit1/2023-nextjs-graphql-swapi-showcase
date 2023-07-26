@@ -9,37 +9,19 @@ interface StarWarPeopleProps {
 
 const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
   const Hoc = (props: StarWarPeopleProps) => {
-    const { people } = props
+    const { people } = props;
     const [data, setData] = useState<People[] | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [favorites, setFavorites] = useState<string[]>([]);
 
-    useEffect(() => {
-      const fetchStarWarsData = async () => {
-        try {
-          if(people) {
-            const peopleArr = plainToClass(PeopleClass, people);
+    const peopleArr = plainToClass(PeopleClass, people);
 
-            const peopleWithFavProp = peopleArr.map(
-              (people: PeopleClass, index) => ({
-                ...people,
-                gender: people.getGender(),
-                isFav: favorites.includes(people.id),
-              })
-            );
-
-            setData(peopleWithFavProp);
-            setLoading(false);
-          }
-        } catch (error) {
-          setError("Error fetching data.");
-          setLoading(false);
-        }
-      };
-
-      fetchStarWarsData();
-    }, [favorites]);
+    const peopleWithFavProp = peopleArr.map((people: PeopleClass, index) => ({
+      ...people,
+      gender: people.getGender(),
+      isFav: favorites.includes(people.id),
+    }));
 
     const handleToggleFavorite = (people: People) => {
       setFavorites((prevFavorites) =>
@@ -58,7 +40,7 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
     }
 
     const newProps = {
-      data,
+      data: peopleWithFavProp,
       loading,
       error,
       people,
