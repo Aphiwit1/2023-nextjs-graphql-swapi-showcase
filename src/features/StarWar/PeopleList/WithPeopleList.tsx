@@ -1,9 +1,12 @@
 import { PeopleListProps, People } from "./interface";
 import React, { useState, useEffect } from "react";
 
+interface StarWarPeopleProps {
+  people: People[];
+}
 
 const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
-  const Hoc: React.FC<PeopleListProps> = (props) => {
+  const Hoc = (props: StarWarPeopleProps) => {
     const { people } = props
     const [data, setData] = useState<People[] | null>(null);
     const [loading, setLoading] = useState(true);
