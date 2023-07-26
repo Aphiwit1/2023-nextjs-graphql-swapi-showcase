@@ -15,8 +15,8 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
         const fetchStarWarsData = async () => {
           try {
             if (films) {
-            const mockFilm = plainToClass(FilmClass, films);
-              const filmsWithFavProp = mockFilm.map((film: FilmClass, index) => ({
+            const filmArr = plainToClass(FilmClass, films);
+              const filmsWithFavProp = filmArr.map((film: FilmClass, index) => ({
                 ...film,
                 title: film.getTitleNameWithYear(),
                 releaseDate: film.getDateFormat(),
