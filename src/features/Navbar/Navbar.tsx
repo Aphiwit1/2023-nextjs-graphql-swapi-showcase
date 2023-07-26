@@ -1,4 +1,5 @@
 import { WithNavbar } from "./WithNavbar";
+import { BsFillSunFill } from "react-icons/bs";
 
 import Link from 'next/link'
 
@@ -11,7 +12,7 @@ const Navbar = () => (
       }}
     >
       <div className="flex flex-row justify-center bg-blue-950 p-2 text-center">
-        This project created by NextJS (Updated: 11.57)
+        This project created by NextJS (Updated: 12.01)
       </div>
       {/* STAR WARS Logo */}
       <div className="flex items-center justify-between h-20 border-b-[1px] border-yellow-500 px-10">
@@ -30,7 +31,7 @@ const Navbar = () => (
         <Link href="/starwar-people" className="ml-5 font-medium text-white hover:text-yellow-500">People</Link>
         </div>
 
-        <div>Dark Mode</div>
+        <div className="hidden sm:flex "><BsFillSunFill/></div>
       </div>
 
       {/*  Heading Caption */}
