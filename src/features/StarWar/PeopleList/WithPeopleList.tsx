@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 
 const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
-  const Hoc = (props: any) => {
+  const Hoc: React.FC<PeopleListProps> = (props) => {
     const { people } = props
     const [data, setData] = useState<People[] | null>(null);
     const [loading, setLoading] = useState(true);
@@ -13,6 +13,7 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
     useEffect(() => {
       const fetchStarWarsData = async () => {
         try {
+          if(people) {
             const peopleWithFavProp = people.map(
               (people: People) => ({
                 ...people,
@@ -22,7 +23,7 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
 
             setData(peopleWithFavProp);
             setLoading(false);
-          
+          }
         } catch (error) {
           setError("Error fetching data.");
           setLoading(false);

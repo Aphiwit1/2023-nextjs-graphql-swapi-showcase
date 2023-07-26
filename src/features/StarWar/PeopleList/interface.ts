@@ -6,9 +6,10 @@ export interface People {
   }
 
   export interface PeopleListProps {
-    favorites: string[];
-    data: People[] | null;
-    handleToggleFavorite: (film: People) => void;
+    favorites?: string[];
+    data?: People[] | null;
+    people?: People[] | null;
+    handleToggleFavorite?: (film: People) => void;
 }
 
 

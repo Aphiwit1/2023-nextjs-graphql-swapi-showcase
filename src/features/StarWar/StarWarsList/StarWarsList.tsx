@@ -10,7 +10,6 @@ const StarWarsList: React.FC<StarWarsListProps> = ({data,
   favorites,
   handleToggleFavorite}: any) => (
     <div>
-      {/* Your component UI here */}
       <section className="flex flex-col items-center p-4 bg-slate-900">
         {/* Fav List */}
         <div>
