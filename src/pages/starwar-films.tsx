@@ -25,7 +25,7 @@ export async function getStaticProps() {
   try {
     const data: { allFilms: { films: Film[] } } = await graphQLClient.request(getPostsQuery);
     const films = data.allFilms.films;
-    console.log(">>", films)
+    // console.log(">>", films)
 
     return { props: { films } };
   } catch (error) {

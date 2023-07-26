@@ -11,47 +11,19 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
   const Hoc = (props: StarWarFilmProps) => {
     const { films } = props;
     const [data, setData] = useState<Film[] | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [favorites, setFavorites] = useState<string[]>([]);
 
-    useEffect(() => {
-        const fetchStarWarsData = async () => {
-          try {
-            if (films) {
-            const filmArr = plainToClass(FilmClass, films);
-              const filmsWithFavProp = filmArr.map((film: FilmClass, index) => ({
-                ...film,
-                title: film.getTitleNameWithYear(),
-                releaseDate: film.getDateFormat(),
-                isFav: favorites.includes(film.id),
-              }));
-
-              // console.log('mockFilm>>>', mockFilm[0].getTitleNameWithYear())
-    
-              setData(filmsWithFavProp);
-              console.log('>>>>>>', data)
-              setLoading(false);
-            }
-          } catch (error) {
-            setError("Error fetching data.");
-            setLoading(false);
-          }
-        };
-    
-        fetchStarWarsData();
-      }, []);
-
-    useEffect(() => {
-      setData((prevData) => {
-        return (
-          prevData?.map((film: Film) => ({
-            ...film,
-            isFav: favorites.includes(film.id),
-          })) ?? []
-        );
-      });
-    }, [favorites]);
+     // Preprocess the data outside of the component and store it in 'data'
+     const filmArr = plainToClass(FilmClass, films);
+     const filmsWithFavProp = filmArr.map((film: FilmClass, index) => ({
+       ...film,
+       title: film.getTitleNameWithYear(),
+       releaseDate: film.getDateFormat(),
+       isFav: favorites.includes(film.id),
+     }));
+ 
 
     if (loading) {
       return <div>Loading...</div>;
@@ -70,7 +42,7 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
     };
 
     const newProps: StarWarsListProps = {
-      data,
+      data: filmsWithFavProp,
       loading,
       error,
       films,
