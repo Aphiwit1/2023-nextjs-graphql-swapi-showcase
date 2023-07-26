@@ -12,7 +12,7 @@ const starwarPeople = ({ people }: StarWarPeopleProps) => {
   return (
     <>
       <Navbar />
-      <PeopleList people={people} />
+      <PeopleList people={people} favorites={[]} data={[]} handleToggleFavorite={() => {}} />
     </>
   );
 };

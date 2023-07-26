@@ -53,6 +53,7 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
       data,
       loading,
       error,
+      people,
       favorites,
       handleToggleFavorite,
     };

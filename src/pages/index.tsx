@@ -19,7 +19,7 @@ export default function Home({ films, people }: HomeProps) {
     <>
       <Navbar />
       <StarWarsList films={films} />
-      <PeopleList people={people}/>
+      <PeopleList people={people} favorites={[]} data={[]} handleToggleFavorite={() => {}}/>
     </>
   );
 }

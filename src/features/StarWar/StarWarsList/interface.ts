@@ -11,7 +11,7 @@ export interface StarWarsListProps {
   films?: Film[] | null;
   loading?: boolean;
   error?: string | null;
-  favorites?: string[] | undefined;
+  favorites?: string[];
   handleToggleFavorite?: (film: Film) => void;
 }
 
