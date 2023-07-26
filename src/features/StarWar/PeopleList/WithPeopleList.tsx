@@ -1,5 +1,7 @@
+import { PeopleClass } from "@/models/PeopleModel";
 import { PeopleListProps, People } from "./interface";
 import React, { useState, useEffect } from "react";
+import { plainToClass } from "class-transformer";
 
 interface StarWarPeopleProps {
   people: People[];
@@ -17,9 +19,12 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
       const fetchStarWarsData = async () => {
         try {
           if(people) {
-            const peopleWithFavProp = people.map(
-              (people: People) => ({
+            const peopleArr = plainToClass(PeopleClass, people);
+
+            const peopleWithFavProp = peopleArr.map(
+              (people: PeopleClass, index) => ({
                 ...people,
+                gender: people.getGender(),
                 isFav: favorites.includes(people.id),
               })
             );

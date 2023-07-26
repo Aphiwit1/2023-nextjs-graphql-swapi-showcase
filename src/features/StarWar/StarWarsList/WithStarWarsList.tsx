@@ -3,8 +3,12 @@ import { Film, StarWarsListProps, filmsProp } from "./interface";
 import { FilmClass } from "@/models/Film";
 import { plainToClass } from "class-transformer";
 
+interface StarWarFilmProps {
+  films: Film[];
+}
+
 const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
-  const Hoc: React.FC<StarWarsListProps> = (props: StarWarsListProps) => {
+  const Hoc = (props: StarWarFilmProps) => {
     const { films } = props;
     const [data, setData] = useState<Film[] | null>(null);
     const [loading, setLoading] = useState(true);
@@ -69,6 +73,7 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
       data,
       loading,
       error,
+      films,
       favorites,
       handleToggleFavorite,
     };
