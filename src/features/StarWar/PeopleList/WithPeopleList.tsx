@@ -10,9 +10,7 @@ interface StarWarPeopleProps {
 const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
   const Hoc = (props: StarWarPeopleProps) => {
     const { people } = props;
-    const [data, setData] = useState<People[] | null>(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+
     const [favorites, setFavorites] = useState<string[]>([]);
 
     const peopleArr = plainToClass(PeopleClass, people);
@@ -31,18 +29,9 @@ const WithPeopleList = (Component: React.FC<PeopleListProps>) => {
       );
     };
 
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-
-    if (error) {
-      return <div>{error}</div>;
-    }
-
+  
     const newProps = {
       data: peopleWithFavProp,
-      loading,
-      error,
       people,
       favorites,
       handleToggleFavorite,

@@ -10,12 +10,8 @@ interface StarWarFilmProps {
 const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
   const Hoc = (props: StarWarFilmProps) => {
     const { films } = props;
-    const [data, setData] = useState<Film[] | null>(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
     const [favorites, setFavorites] = useState<string[]>([]);
 
-     // Preprocess the data outside of the component and store it in 'data'
      const filmArr = plainToClass(FilmClass, films);
      const filmsWithFavProp = filmArr.map((film: FilmClass, index) => ({
        ...film,
@@ -24,15 +20,6 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
        isFav: favorites.includes(film.id),
      }));
  
-
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-
-    if (error) {
-      return <div>{error}</div>;
-    }
-
     const handleToggleFavorite = (film: Film) => {
       setFavorites((prevFavorites) =>
         prevFavorites.includes(film.id)
@@ -43,8 +30,6 @@ const WithStarWarsList = (Component: React.FC<StarWarsListProps>) => {
 
     const newProps: StarWarsListProps = {
       data: filmsWithFavProp,
-      loading,
-      error,
       films,
       favorites,
       handleToggleFavorite,
