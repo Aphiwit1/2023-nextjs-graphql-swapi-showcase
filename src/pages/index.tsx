@@ -1,5 +1,5 @@
 
-import Navbar from '@/features/Navbar/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 import { GraphQLClient } from 'graphql-request';
 import { allPeopleQuery, getPostsQuery } from './api/graphqlQueries';
 import { People } from '@/features/StarWar/PeopleList/interface';

@@ -3,7 +3,7 @@ import { GraphQLClient } from 'graphql-request'
 import React from 'react'
 import { getPostsQuery } from './api/graphqlQueries'
 import { Film } from '@/features/StarWar/StarWarsList/interface'
-import Navbar from '@/features/Navbar/Navbar'
+import Navbar from '@/components/Navbar/Navbar'
 
 interface StarWarFilmProps {
   films: Film[];

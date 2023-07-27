@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import React from "react";
 import { allPeopleQuery, getPostsQuery } from "./api/graphqlQueries";
-import Navbar from "@/features/Navbar/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import { People } from "@/features/StarWar/PeopleList/interface";
 import PeopleList from "@/features/StarWar/PeopleList/PeopleList";
 interface StarWarPeopleProps {
